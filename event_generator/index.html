@@ -11,11 +11,187 @@
     />
     <title>Choose your Own Adventure</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+body {
+    background-color:rgb(102, 160, 255) !important;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.container {
+    max-width: 90vw!important;
+}
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.form-row {
+    padding-top: .75rem;
+}
+.card {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
+}
+
+.spacer {
+    margin-top:0.75rem
+}
+.spacer-2 {
+    margin-top:2rem
+}
+
+.btn {
+    text-align: center!important;
+}
+.popup-container {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+}
+.popup {
+    position: absolute;
+    float: right;
+    top: 50px;
+    z-index: 999;
+    left: 50%;
+}
+
+.popup .container {
+    position: relative; left: -100%;
+}
+
+/* buttons */
+.buttons ul {
+    text-align: center;
+}
+.buttons ul li {
+    margin-top: 10px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.buttons {
+    position: sticky;
+    bottom: 5vh;
+    margin-right: 2vw;
+    float: right;
+}
+
+.buttons ul {
+    list-style-type: none;
+}
+.darken {
+    background-color: rgba(0, 0, 0, 0.247);
+    width: 100vw;
+    height: 100vh;
+}
+.col-4 {
+    margin-bottom: 20px;
+}
+
+    </style>
 </head>
 
 <body>
     <noscript>You need to enable JavaScript to run this app. :( </noscript>
-    <div id="root"></div>
+    <div id="root">
+    </div>
+    <div class="text-center spacer-2"><button type="submit" class="btn btn-primary">Generate and Download JSON</button></div>
+
+    <!-- popup -->
+    <div class="popup-container darken">
+    <div class="popup">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- each card -->
+                <div class="col-4">
+                    <div class="card" style="width: 29vw;"><form>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-5 col-form-label">Key:</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="inputEmail3" value="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <small id="emailHelp" class="form-text text-muted">A unquie integer key that is used as options (must start at 1)</small>
+                            <div class="input-group mb-3 spacer">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="inputGroupSelect01" >Text align</label>
+                                </div>
+                                <select class="custom-select" id="inputGroupSelect01">
+                                    <option selected>Bottom</option>
+                                    <option value="1">Center</option>
+                                    <option value="2">Top</option>
+                                </select>
+                            </div>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="text"></textarea>
+                            
+                            <small id="emailHelp" class="form-text text-muted">The text that will appear on the text aligned region</small>
+                        </div>
+
+                        <!-- background -->
+                        <div class="form-row">
+                            <label class="col-form-label">Background: </label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="file name">
+                            </div>
+                            <div class="col">
+                                <input type="color" class="form-control" placeholder="color">
+                            </div>
+                            <small id="emailHelp" class="form-text text-muted">You can specify the background image name (this image must have an extension and will point to the image in the images folder). If no image is provided, the color will be used</small>
+                        </div>
+                        
+                        <div class="form-group spacer">
+                            <label for="exampleFormControlTextarea1">Options: </label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2">Press Space to Continue [2]</textarea>
+                            <small id="emailHelp" class="form-text text-muted">Every new line specifies a new option and end every line with the number of the next key, surrounded in brackets</small>
+                        </div>
+
+                        <!-- fade in/out -->
+                        <div class="spacer">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                <label class="form-check-label" for="inlineCheckbox1">Fade In</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                <label class="form-check-label" for="inlineCheckbox2">Fade Out</label>
+                            </div>
+                            <small id="emailHelp" class="form-text text-muted">Press the Question mark Button again to escape</small>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- 2 button, 1 (+) add item, 1 save, and 1 element that toggles dark mode -->
+    <div class="buttons">
+        <ul>
+            <li id="first"><button title="Add Event" type="button" class="btn btn-primary btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>+</b></button></li>
+            <li id="second"><button title="Add Event" type="button" class="btn btn-danger btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>-</b></button></li>
+            <li id="third"><button title="Add Event" type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>?</b></button></li>
+        </ul>
+    </div>
 
     <!-- jquery + bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
