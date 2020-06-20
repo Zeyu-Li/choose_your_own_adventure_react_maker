@@ -1,5 +1,8 @@
 let counter = 1
 let card
+const events = {
+
+}
 
 const row_start = `
 <div class="container main_content">
@@ -24,7 +27,7 @@ function get_card() {
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-5 col-form-label">Key:</label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" id="inputEmail3" value="`+ counter +`">
+                <input type="number" min="1" name="key" class="form-control" id="inputEmail3" value="`+ counter +`">
             </div>
         </div>
         <div class="form-group">
@@ -32,39 +35,39 @@ function get_card() {
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01" >Text align</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect01">
+                <select name="algin" class="custom-select" id="inputGroupSelect01">
                     <option selected>Bottom</option>
                     <option value="1">Center</option>
                     <option value="2">Top</option>
                 </select>
             </div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="text"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="text" name="text"></textarea>
         </div>
 
         <!-- background -->
         <div class="form-row">
             <label class="col-form-label">Background: </label>
             <div class="col">
-                <input type="text" class="form-control" placeholder="file name">
+                <input type="text" class="form-control" placeholder="file name" name="image">
             </div>
             <div class="col">
-                <input type="color" class="form-control" placeholder="color">
+                <input type="color" class="form-control" placeholder="color" name="color">
             </div>
         </div>
         
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Options: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Press Space to Continue [`+ (counter+1) +`]</textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="options">Press Space to Continue [`+ (counter+1) +`]</textarea>
         </div>
 
         <!-- fade in/out -->
         <div class="spacer">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="fade_in">
                 <label class="form-check-label" for="inlineCheckbox1">Fade In</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="fade_out">
                 <label class="form-check-label" for="inlineCheckbox2">Fade Out</label>
             </div>
         </div>
@@ -90,4 +93,19 @@ $('#second button').click(()=>{
 
 $('#third button').click(() => {
     $('.popup-container').toggle()
+})
+
+// generate button
+$('.generate_btn').click(()=> {
+    let current_event, current_number
+    $('#root form').each(function(i, value){
+        current_event = $(this).serializeArray()
+        current_number = current_event[0].value
+        events[current_number] = current_event
+    })
+    let json_data = JSON.stringify(events)
+    
+    let data = new Blob([json_data], {type: 'application/json'});
+    let textFile = URL.createObjectURL(data);
+    $('.generate_btn a').attr('href', textFile);
 })
