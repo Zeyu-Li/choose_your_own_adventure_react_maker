@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Game from './Game'
-
+// WARNING: don't touch the index, go to the Game.js to do modifications
 
 ReactDOM.render(
-	<Game />,
+	<Game key="gamer1" />,
 	document.getElementById('root')
 );
 
