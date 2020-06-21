@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import Options from './Options'
 
+
 class Game extends Component {
+
+    state = {
+        data: []
+    }
+
+    componentDidMount() {
+        fetch('json/data.json')
+            .then(data => data.json())
+            .then(data => this.setState({data}));
+    }
+
     render() {
         return (
-            <div>
-                <img alt="display images" src="./images/main.png"></img>
-            </div>
+            <Options />
         )
     }
 }

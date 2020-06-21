@@ -57,7 +57,7 @@ function get_card() {
         
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Options: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="options">Press Space to Continue [`+ (counter+1) +`]</textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="options">Press 1 to Continue [`+ (counter+1) +`]</textarea>
         </div>
 
         <!-- fade in/out -->
