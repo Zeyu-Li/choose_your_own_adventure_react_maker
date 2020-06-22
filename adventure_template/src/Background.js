@@ -8,7 +8,7 @@ export const Background = ({image, background_color, fadeIn, fadeOut}) => {
 
     // background is centered and should cover the whole screen
     return (
-        <div className="background" style={{animation: "fadeout", fade2}}>
+        <div className="background" style={{animation: "fadeout", fade2, backgroundColor: background_color}}>
             <img alt="display image" src={image ? image: ""} style={{animation: "fadein", fade1}}></img>
         </div>
     )

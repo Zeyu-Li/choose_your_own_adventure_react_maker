@@ -41,7 +41,7 @@ function get_card() {
                     <option value="2">Top</option>
                 </select>
             </div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="text" name="text"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="text" name="text"></textarea>
         </div>
 
         <!-- background -->
@@ -57,7 +57,7 @@ function get_card() {
         
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Options: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="options">Press 1 to Continue [`+ (counter+1) +`]</textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="options">Press to Continue [`+ (counter+1) +`]</textarea>
         </div>
 
         <!-- fade in/out -->
