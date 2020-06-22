@@ -16,7 +16,7 @@ React is only for development and you can just take the website template in [rel
 2. Then go to the [releases](https://github.com/Zeyu-Li/choose_your_own_adventure_react_maker/releases): https://github.com/Zeyu-Li/choose_your_own_adventure_react_maker/releases
 3. **Download** a recent release and unzip it
 4. **Place** the generated JSON from the website and images into the images folder (these have to have the same name as the one specified in the adventure website generator)
-5. Run the website on a live server (because of the JSON file) such as [VS code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), [Brackets.io](http://brackets.io/), or Atom
+5. Run the website on a live server (because of the JSON file) such as [VS code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), [Brackets.io](http://brackets.io/), or Atom. (Another options is a web server [chrome extension](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en), but it may be buggy)
 6. **Share** with your friends! (You can upload to GitHub Pages!!)
 
 
