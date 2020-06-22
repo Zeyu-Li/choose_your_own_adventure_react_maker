@@ -21,9 +21,8 @@ class Options extends Component {
                         return (
                             <a onClick={() => this.click(item[1])}><li class="pick" id={"choice-"+item[1]}><p><b>{item[0]}</b></p></li></a>
                         )
-                    } )}
+                    })}
                 </ul>
-                
             </div>
         )
     }

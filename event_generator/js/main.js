@@ -1,25 +1,26 @@
+// inits
 let counter = 1
 let card
 const events = {
-
 }
 
 const row_start = `
 <div class="container main_content">
     <div class="row justify-content-start main">
 `
-
 const row_end = `
     </div>
 </div>
 `
 
 $( document ).ready(() => {
+    // when document is ready, add 1 new card
     card = get_card()
     $("#root").append(row_start + card + row_end)
 })
 
 function get_card() {
+    // creates a new card and returns it
     let text =  `
 <!-- each card -->
 <div class="col-4">
@@ -33,9 +34,9 @@ function get_card() {
         <div class="form-group">
             <div class="input-group mb-3 spacer">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01" >Text align</label>
+                    <label class="input-group-text" for="inputGroupSelect01" >(Under construction)</label>
                 </div>
-                <select name="algin" class="custom-select" id="inputGroupSelect01">
+                <select name="algin" class="custom-select" id="inputGroupSelect01" disabled>
                     <option selected>Bottom</option>
                     <option value="1">Center</option>
                     <option value="2">Top</option>
@@ -63,11 +64,11 @@ function get_card() {
         <!-- fade in/out -->
         <div class="spacer">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="fade_in">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="fade_in" disabled>
                 <label class="form-check-label" for="inlineCheckbox1">Fade In</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="fade_out">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="fade_out" disabled>
                 <label class="form-check-label" for="inlineCheckbox2">Fade Out</label>
             </div>
         </div>
@@ -95,7 +96,7 @@ $('#third button').click(() => {
     $('.popup-container').toggle()
 })
 
-// generate button
+// generate JSON button
 $('.generate_btn').click(()=> {
     let current_event, current_number
     $('#root form').each(function(i, value){

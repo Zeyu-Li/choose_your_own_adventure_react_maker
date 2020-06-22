@@ -1,0 +1,104 @@
+/* body */
+body {
+    background-color:rgb(102, 160, 255) !important;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+/* main container */
+.container {
+    max-width: 90vw!important;
+}
+
+/* form cards */
+form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.form-row {
+    padding-top: .75rem;
+}
+
+.card {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 1);
+}
+
+/* spacing options */
+.spacer {
+    margin-top:0.75rem
+}
+.spacer-2 {
+    margin-top:2rem
+}
+
+.col-4 {
+    margin-bottom: 20px;
+}
+
+/* buttons */
+.btn {
+    text-align: center!important;
+}
+
+/* popup */
+.popup-container {
+    position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+}
+.popup {
+    position: absolute;
+    float: right;
+    top: 50px;
+    z-index: 999;
+    left: 50%;
+}
+.popup .container {
+    position: relative; left: -100%;
+}
+
+/* buttons */
+.buttons ul {
+    text-align: center;
+}
+.buttons ul li {
+    margin-top: 10px;
+}
+
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.buttons {
+    position: sticky;
+    bottom: 5vh;
+    margin-right: 2vw;
+    float: right;
+}
+
+.buttons ul {
+    list-style-type: none;
+}
+
+/* darken background when viewing help */
+.darken {
+    background-color: rgba(0, 0, 0, 0.247);
+    width: 100vw;
+    height: 100vh;
+}
