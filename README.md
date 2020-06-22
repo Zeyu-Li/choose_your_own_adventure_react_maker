@@ -17,7 +17,7 @@ React is only for development and you can just take the website template in [rel
 3. **Download** a recent release and unzip it
 4. **Place** the generated JSON from the website and images into the images folder (these have to have the same name as the one specified in the adventure website generator)
 5. Run the website on a live server (because of the JSON file) such as [VS code Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), [Brackets.io](http://brackets.io/), or Atom
-6. **Share** with your friends! (You can upload to GitHub Pages)
+6. **Share** with your friends! (You can upload to GitHub Pages!!)
 
 
 
@@ -25,7 +25,7 @@ React is only for development and you can just take the website template in [rel
 
 ![demo](images/demo.gif)
 
-This demo is also available if you build the project as it is right now
+This demo is also available if you build the project as it is right now or the link [here](https://zeyu-li.github.io/choose_your_own_adventure_react_maker/adventure_template/build/index.html)
 
 
 
