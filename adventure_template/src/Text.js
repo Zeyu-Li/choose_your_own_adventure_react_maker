@@ -5,7 +5,7 @@ export const Text = ({text}) => {
     if (text != null) {
         return (
             <div className="typing_text">
-                <p>{text} </p>
+                <p>{text}</p>
             </div>
         )
     } else {

@@ -18,6 +18,7 @@ p {
   margin-bottom: 5px;
   font-size: x-large;
   color: aliceblue;
+  white-space: pre-wrap;
 }
 
 ul {

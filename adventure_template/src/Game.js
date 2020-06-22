@@ -33,7 +33,8 @@ class Game extends Component {
 
         // for each level, save to state
         for (let tmp of Object.entries(this.state.data)) {
-            let option = tmp[1][5].value
+            console.log(tmp)
+            let option = tmp[1][4].value
             let options = []
             // split by \n and then separate by [
             option = option.split("\n")
@@ -46,10 +47,9 @@ class Game extends Component {
             });
 
             let level = {
-                align: tmp[1][1].value,
-                text: tmp[1][2].value,
-                image: tmp[1][3].value,
-                color: tmp[1][4].value,
+                text: tmp[1][1].value,
+                image: tmp[1][2].value,
+                color: tmp[1][3].value,
                 options: options
             }
             this.state.levelsData.push(level)
@@ -69,7 +69,7 @@ class Game extends Component {
     render() {
         return (
             <div className="main_content">
-                {this.state.loaded ? "loading":
+                {this.state.loaded ? "loading... Perhaps you are not running it on a server":
                 this.state.levelsData.map((item, i) => {
                     if (i + 1 == this.state.level){
                         return (
