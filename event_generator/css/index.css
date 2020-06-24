@@ -39,6 +39,10 @@ form {
     margin-bottom: 20px;
 }
 
+.grid {
+    min-width: 300px;
+}
+
 /* buttons */
 .btn {
     text-align: center!important;
@@ -101,4 +105,8 @@ form {
     background-color: rgba(0, 0, 0, 0.247);
     width: 100vw;
     height: 100vh;
+}
+
+/* resize cards */
+@media only screen and (max-width: 900px) {
 }

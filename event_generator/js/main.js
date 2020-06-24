@@ -6,7 +6,7 @@ const events = {
 
 const row_start = `
 <div class="container main_content">
-    <div class="row justify-content-start main">
+    <div class="row justify-content-center main">
 `
 const row_end = `
     </div>
@@ -23,8 +23,8 @@ function get_card() {
     // creates a new card and returns it
     let text =  `
 <!-- each card -->
-<div class="col-4">
-    <div class="card" style="width: 29vw;"><form>
+<div class="col-4 grid">
+    <div class="card"><form>
         <div class="form-group row">
             <label for="inputEmail3" class="col-sm-5 col-form-label">Key:</label>
             <div class="col-sm-5">
