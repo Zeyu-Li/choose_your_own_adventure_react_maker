@@ -14,12 +14,12 @@ class Options extends Component {
     render() {
         return (
             <div className="options">
-                <Text key={'text' + this.props.altKey} text={this.props.text} />
+                <Text key={'text_' + this.props.altKey} text={this.props.text} />
                 {/* creates choices */}
                 <ul>
                     {this.props.options.map((item, i) => {
                         return (
-                            <a onClick={() => this.click(item[1])}><li class="pick" id={"choice-"+item[1]}><p><b>{item[0]}</b></p></li></a>
+                            <a onClick={() => this.click(item[1])}><li className="pick" id={"choice-"+item[1]}><p><b>{item[0]}</b></p></li></a>
                         )
                     })}
                 </ul>

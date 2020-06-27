@@ -5,27 +5,24 @@ import {Background} from './Background'
 
 
 class Game extends Component {
-    constructor(props) {
-        super(props)
-    }
+    // a Game object that acts like the main container for this game "engine"
 
-    // state var containing all the levels and neccessay info on those levels
+    // state var containing all the levels and necessary info on those levels
     state = {
         data: [],
         levelsData: [],
         loaded: false,
-        level: 1
+        level: 1,
+        reload: false
     }
 
 
     changeLevel = (number) => {
         // changes level given the number
-        console.log(number, this.state.level)
         this.state.level = number
 
-        // rerender
-        this.setState({loaded: true})
-        this.setState({loaded: false})
+        // rerender game component
+        this.setState({reload: !this.state.reload})
     }
 
     init() {
@@ -33,7 +30,6 @@ class Game extends Component {
 
         // for each level, save to state
         for (let tmp of Object.entries(this.state.data)) {
-            console.log(tmp)
             let option = tmp[1][4].value
             let options = []
             // split by \n and then separate by [
@@ -57,12 +53,12 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        // gets json and calls all the neccessary inits
+        // gets json and calls all the necessary inits
         this.setState({loaded: true})
         fetch('json/data.json')
             .then(data => data.json())
             .then(data => this.setState({data}))
-            .then(data => this.init())
+            .then(_ => this.init())
             .then(data => this.setState({data, loaded: false}))
     }
 
@@ -74,8 +70,8 @@ class Game extends Component {
                     if (i + 1 == this.state.level){
                         return (
                             <span id="solid" className={"scene-" + (i + 1)} style={{display: i + 1 == this.state.level ? 'hidden': null}}>
-                                <Background key={'back' + i} image={item.image ? "images/" + item.image : null} background_color={item.color} fadeIn={true} fadeOut={true} />
-                                <Options key={'options' + i} altKey={i} options={item.options} text={item.text} change={this.changeLevel} />
+                                <Background key={'back_' + i} image={item.image ? "images/" + item.image : null} background_color={item.color} fadeIn={true} fadeOut={true} />
+                                <Options key={'options_' + i} altKey={i} options={item.options} text={item.text} change={this.changeLevel} />
                             </span>
                         )
                     }

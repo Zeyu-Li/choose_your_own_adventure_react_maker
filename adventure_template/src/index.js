@@ -7,7 +7,7 @@ import Game from './Game'
 // WARNING: don't touch the index, go to the Game.js to do modifications
 
 ReactDOM.render(
-	<Game key="gamer1" />,
+	<Game key="game" />,
 	document.getElementById('root')
 );
 
