@@ -26,8 +26,32 @@
     <!-- generate and downloads JSON -->
     <div class="text-center spacer-2 generate_btn"><a download="data.json"><button type="submit" class="btn btn-primary" >Generate and Download JSON</button></a></div>
 
-    <!-- popup -->
-<div class="popup-container darken">
+<!-- text input popup -->
+<div class="popup-container darken text_popup">
+    <div class="popup">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- card -->
+                <div class="col-1">
+                    <div class="card" style="width: 50vw;">
+                        <form>
+                        <div class="form-group spacer">
+                            <label for="exampleFormControlTextarea1">Input: </label>
+                            <textarea class="form-control" id="json_data" rows="10" placeholder="Paste text here" ></textarea>
+                            <small id="emailHelp" class="form-text text-muted">This is the text area that you can input saved JSON files as text to edit</small><br><br>
+                            <a class="btn btn-primary btn-lg btn-block submit_data">Submit</a>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- help popup -->
+<div class="popup-container darken help_popup">
     <div class="popup">
         <div class="container">
             <div class="row justify-content-center">
@@ -97,13 +121,13 @@
     </div>
 </div>
 
-    
     <!-- 3 buttons, 1 (+) add item, 1 (-) remove item, and 1 to enable help -->
     <div class="buttons">
         <ul>
             <li id="first"><button title="Add Event" type="button" class="btn btn-primary btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>+</b></button></li>
-            <li id="second"><button title="Add Event" type="button" class="btn btn-danger btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>-</b></button></li>
-            <li id="third"><button title="Add Event" type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>?</b></button></li>
+            <li id="second"><button title="Delete Event" type="button" class="btn btn-danger btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>-</b></button></li>
+            <li id="third"><button title="Help" type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>?</b></button></li>
+            <li id="forth"><button title="Load Json" type="button" class="btn btn-info btn-circle btn-xl" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"><b>L</b></button></li>
         </ul>
     </div>
 

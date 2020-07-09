@@ -3,6 +3,7 @@ let counter = 1
 let card
 const events = {
 }
+alert_flag = false
 
 const row_start = `
 <div class="container main_content">
@@ -19,9 +20,14 @@ $( document ).ready(() => {
     $("#root").append(row_start + card + row_end)
 })
 
-function get_card() {
+function get_card(text = '', background = '', color = '', options = '') {
     // creates a new card and returns it
-    let text =  `
+
+    if (options == '') {
+        options = `Press to Continue [`+ (counter+1) +`]`
+    }
+
+    let single_card =  `
 <!-- each card -->
 <div class="col-4 grid">
     <div class="card"><form>
@@ -42,23 +48,23 @@ function get_card() {
                     <option value="2">Top</option>
                 </select>
             </div>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="text" name="text"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="text" name="text">` + text + `</textarea>
         </div>
 
         <!-- background -->
         <div class="form-row">
             <label class="col-form-label">Background: </label>
             <div class="col">
-                <input type="text" class="form-control" placeholder="file name" name="image">
+                <input type="text" class="form-control" placeholder="file name" name="image" value='` + background + `'>
             </div>
             <div class="col">
-                <input type="color" class="form-control" placeholder="color" name="color">
+                <input type="color" class="form-control" placeholder="color" name="color" value='` + color + `'>
             </div>
         </div>
         
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Options: </label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="options">Press to Continue [`+ (counter+1) +`]</textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" name="options">`+ options +`</textarea>
         </div>
 
         <!-- fade in/out -->
@@ -77,7 +83,7 @@ function get_card() {
 </div>
     `
     counter++
-    return text
+    return single_card
 }
 
 
@@ -93,7 +99,38 @@ $('#second button').click(()=>{
 })
 
 $('#third button').click(() => {
-    $('.popup-container').toggle()
+    $('.help_popup').toggle()
+})
+
+// gets a json, load
+$('#forth button').click(() => {
+    if (!alert_flag) {
+        // alert('By loading data, you will erase the current state')
+        alert_flag = !alert_flag
+    }
+    $('.text_popup').toggle()
+})
+
+// gets submitted data
+$('.submit_data').click(() => {
+    // gets data
+    let data = $('#json_data').val()
+
+    // if is empty, return
+    if (data == "") {
+        return
+    }
+    data = JSON.parse(data)
+    counter = 1
+    $('.main').empty()
+
+    // for each card data, append card
+    for (const element in data){
+        card_data = data[element]
+        $('.main_content .main').last().append(get_card(card_data[1].value, card_data[2].value, card_data[3].value, card_data[4].value))
+    }
+
+    $('.text_popup').toggle()
 })
 
 // generate JSON button

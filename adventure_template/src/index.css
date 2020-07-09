@@ -93,6 +93,11 @@ img {
   width: 100vw;
 }
 
+/* btn */
+.submit_data {
+  color: aliceblue!important;
+}
+
 /* fade in and out */
 @keyframes fadein {
   from { opacity: 0; }
