@@ -82,6 +82,9 @@ img {
   list-style-type: none;
   cursor: pointer;
 }
+.options a {
+  text-decoration: none;
+}
 
 /* typing text */
 .typing_text {

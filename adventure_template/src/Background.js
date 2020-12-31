@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 // generates image or colored background
 
 export const Background = ({image, background_color, fadeIn, fadeOut}) => {

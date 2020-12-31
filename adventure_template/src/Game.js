@@ -19,7 +19,7 @@ class Game extends Component {
 
     changeLevel = (number) => {
         // changes level given the number
-        this.state.level = number
+        this.setState({level: number})
 
         // rerender game component
         this.setState({reload: !this.state.reload})
@@ -67,14 +67,14 @@ class Game extends Component {
             <div className="main_content">
                 {this.state.loaded ? "loading... Perhaps you are not running it on a server":
                 this.state.levelsData.map((item, i) => {
-                    if (i + 1 == this.state.level){
+                    if (i + 1 === this.state.level){
                         return (
-                            <span id="solid" className={"scene-" + (i + 1)} style={{display: i + 1 == this.state.level ? 'hidden': null}}>
+                            <span id="solid" className={"scene-" + (i + 1)} style={{display: i + 1 === this.state.level ? 'hidden': null}} key={`scene-${i}`}>
                                 <Background key={'back_' + i} image={item.image ? "images/" + item.image : null} background_color={item.color} fadeIn={true} fadeOut={true} />
                                 <Options key={'options_' + i} altKey={i} options={item.options} text={item.text} change={this.changeLevel} />
                             </span>
                         )
-                    }
+                    } else {return ''}
                 })
                 }
             </div>

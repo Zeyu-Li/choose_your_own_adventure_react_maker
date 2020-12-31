@@ -3,9 +3,6 @@ import {Text} from './Text'
 // generates options
 
 class Options extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     click(nextScene) {
         this.props.change(nextScene)
@@ -19,7 +16,7 @@ class Options extends Component {
                 <ul>
                     {this.props.options.map((item, i) => {
                         return (
-                            <a onClick={() => this.click(item[1])}><li className="pick" id={"choice-"+item[1]}><p><b>{item[0]}</b></p></li></a>
+                            <a onClick={() => this.click(item[1])} key={`options-${i}`} href="#/"><li className="pick" id={"choice-"+item[1]}><p><b>{item[0]}</b></p></li></a>
                         )
                     })}
                 </ul>
